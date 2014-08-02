@@ -192,14 +192,18 @@
         *
         * @throws   ConnectionException if connection was not available.
         * @throws   QueryException if query did not succed and user was not added.
-        * @throws   UserNotAddedException if a user with the same email exists.
-        * @throws   MailLengthException if mail is not valid.
-        * @throws   UserNotAddedException if users could not be added.
+        * @throws   UserNotValidException if users could not be added.
         * 
         * @return void
         */
         public static function storeNewUser($user){
-
+           
+           if(self::getUsersGeneric("%", "%", "%", "%", "%", $user->getEmail())!=null){
+               
+               throw new UserNotValidException();
+               
+           }
+            
            $db_interface=Factory::connect();
            $stmt=$db_interface->stmt_init();
 
