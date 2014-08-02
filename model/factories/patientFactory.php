@@ -1,7 +1,9 @@
 <?php
 
     require_once("/home/amm/development/amm2014/model/factories/settings.php");
-
+    
+    require_once(Settings::baseDirectory()."/model/factories/factory.php");
+    
     require_once(Settings::baseDirectory()."/model/exceptions/queryException.php");
     require_once(Settings::baseDirectory()."/model/exceptions/connectionException.php");
 
