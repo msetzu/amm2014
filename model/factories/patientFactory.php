@@ -64,10 +64,10 @@
 
                     } else {
 
-                        $stmt->bind_param("ssss",
+                        $stmt->bind_param("sss",
                                             $name,
                                             $surname,
-                                            $birthday->format("Y-m-d H:s:i")
+                                            $birthday->format("Y-m-d")
                                          );
 
                     }
