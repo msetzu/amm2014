@@ -83,7 +83,7 @@
 
                             while ($stmt->fetch()) {
 
-                                $results[]=array($tmp_name, $tmp_surname, $tmp_birthday, $tmp_ward, $tmp_bed_number, $tmp_id);
+                                $results[]=new Patient($tmp_name, $tmp_surname, $tmp_birthday, $tmp_ward, $tmp_bed_number, $tmp_id);
 
                             }
 
