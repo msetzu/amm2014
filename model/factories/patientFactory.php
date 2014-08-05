@@ -196,16 +196,17 @@
                                         ?,
                                         ?,
                                         ?,
-                                        'None',
+                                        ?,
                                         0,                                        
                                         null,
                                         null)
                                 ");
 
-                $stmt->bind_param("sss",
+                $stmt->bind_param("ssss",
                                     $patient->getName(),
                                     $patient->getSurname(),
-                                    $patient->getBirthday()->format("Y-m-d")
+                                    $patient->getBirthday()->format("Y-m-d"),
+				    $patient->getWard()				
                                  );
 
                 if($stmt->errno==0){
