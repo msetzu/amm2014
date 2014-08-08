@@ -14,8 +14,7 @@
          * @param String    $surname    The patient's surname.
          * @param DateTime  $birthday   The patient's birthday.
          * @param String    $ward       The patient's ward.
-         * @param String    $email      The patient's email.
-         * @param String    $password   The patient's password.
+         * @param int       $bedNumber  The patient's bed number.
          * @param int       $id         The patient's id.
          */
         public function __construct($name, $surname, $birthday, $ward, $bedNumber, $id){
