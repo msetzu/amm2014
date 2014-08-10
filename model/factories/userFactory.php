@@ -467,6 +467,58 @@
 
         }
     
-    
+        
+        /**
+         * Discharge a patient from a user's care.
+         * 
+         * @param int   $doctorId   The user's id.
+         * @param int   $patientId  The patient's id.
+         */
+        public static function discharge($doctorId, $patientId){
+            
+            try{
+                
+                Factory::query("delete from
+                                        user_patient
+                                where
+                                    user_id=$doctorId
+                                    and
+                                    patient_id=$patientId
+                               ");
+                
+            }catch(Exception $e){}
+            
+        }
+        
+        
+        /**
+         * Let a user put a patient in his patients list.
+         * 
+         * @param int       $userId     The user's id.
+         * @param String    $userRole   The user's role.
+         * @param int       $patientId  The patient's id.
+         */
+        public static function addPatient($userId, $userRole, $patientId){
+            
+            try{
+                
+                Factory::query("insert into
+                                        user_patient
+                                        (id,
+                                        user_id,
+                                        patient_id,
+                                        user_role)
+                                values
+                                        (default,
+                                        $userId,
+                                        $patientId,
+                                        \"$userRole\")
+                               ");
+                
+            }catch(Exception $e){}
+            
+        }
+        
+        
 }
 ?>
