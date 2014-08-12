@@ -119,6 +119,88 @@
         }
         
         
+        /**
+         * 
+         * @param   CaseEntry       $entry  The entry to be updated.
+         * 
+         * @throws  QueryException          If entry could not be updated.
+         */
+	public static function updateEntry($entry){		
+
+            $db_interface=Factory::connect();
+            $stmt=$db_interface->stmt_init();
+
+            if($stmt){
+
+                $stmt->prepare("update
+                                    case_entries
+                                set
+                                    start=?,
+                                    end=?,
+                                    description=?
+                                where
+                                    id=?
+                            ");
+
+                $stmt->bind_param("sssi",
+                                    $entry->getStart()->format("Y-m-m H:i:s"),
+                                    $entry->getEnd()->format("Y-m-m H:i:s"),
+                                    $entry->getDescription(),
+                                    $entry->getId()
+                                  );
+
+                if($stmt->errno==0){
+
+                        $stmt->execute();
+
+                        if($stmt->errno==0){
+
+                            Factory::close_connection($db_interface);
+                            return;
+
+                        }else{
+
+                           Factory::close_connection($db_interface);
+                           throw new Exception("Error Processing Request", 1);
+
+                        }
+
+                }else{
+
+                    Factory::close_connection($db_interface);
+                    throw new QueryException("Error Processing Request", 1);
+
+                }
+
+            }else{
+
+                Factory::close_connection($db_interface);
+                throw new QueryException("Error Processing Request", 1);
+
+            }
+
+	}
+
+        
+        /**
+         * 
+         * @param   CaseEntry   $entry      The CaseEntry to delete.
+         * 
+         * @throws  QueryException          If $entry could not be deleted.
+         * @throws  ConnectionException     If $entry could not be deleted.
+         */
+        public static function deleteEntry($entry){
+            
+            $id=$entry->getId();
+            
+            Factory::query("delete from
+                                case_entries
+                            where
+                                id=
+                            $id");
+            
+        }
+
     }
 
 ?>
