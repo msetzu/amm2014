@@ -37,12 +37,18 @@
                 
             break;
         
-            case "search_patients":
+            case "patients_search_result":
                 
                 require "search.php";
                 
             break;
             
+            case "patient_search":
+                
+                require "search_form.php";
+                
+            break;
+        
         }
 
     ?>   

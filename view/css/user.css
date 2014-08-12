@@ -157,8 +157,47 @@ header p{
     width: 5%;
 }
 
-.patients li input[src="../../icons/add_grey.svg"]{
+.patients li input[src="../../icons/add_grey.svgs"]{
     right: 1%;
+}
+
+/******************************************************************************************************************/
+
+
+
+/* Search form ****************************************************************************************************/
+
+form input{
+    display: block;
+    
+    margin: 3%;
+    padding: 0.6%;
+    
+    width: 95%;
+    background: transparent;
+    border-bottom: 1px solid #515151;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus{
+    border-color: #00B4FF;
+}
+
+input[value="submit"]{
+    margin: auto;
+    padding: 1%;
+    
+    width: auto;
+    background: #515151;
+    color: white;
+    border-bottom: none;
+    border-radius: 3px;
+}
+
+input[value="submit"]:focus,
+input[value="submit"]:hover{
+    background: #00B4FF;
 }
 
 /******************************************************************************************************************/
