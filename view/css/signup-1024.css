@@ -1,0 +1,14 @@
+@import "./signup.css";
+
+.signup_container{
+    margin-top: 3%;
+    padding: 2%;
+}
+
+input{
+    margin-bottom: 3%;
+}
+
+input[value="submit"]{
+    padding: 3%;
+}

@@ -1,0 +1,17 @@
+@import "./signup-1024.css";
+
+.section_header{
+    padding: 5%;
+}
+
+.section_header p{
+    text-align: center;
+}
+
+input{
+    margin: 7% auto !important;
+}
+
+input[value="submit"]{
+    margin-top: 10%;
+}

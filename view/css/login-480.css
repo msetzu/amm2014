@@ -1,0 +1,11 @@
+@import "./default.css";
+@import "./login.css";
+
+.login_form input{
+    border-bottom-width: 5px;
+}
+
+.image img{
+    width: 56%;
+    margin: 1% 22%;
+}

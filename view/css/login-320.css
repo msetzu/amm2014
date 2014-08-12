@@ -1,0 +1,7 @@
+@import "./default.css";
+@import "./login.css";
+
+.image img{
+    width: 200px;
+    margin: 1% 22px;
+}

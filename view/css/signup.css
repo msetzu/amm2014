@@ -1,0 +1,78 @@
+@import "./default.css";
+
+body{
+    background: url(../html5/patterns/cream_pixels.png);
+}
+
+.section_header{
+    padding: 1%;
+    
+    background: #515151;
+}
+
+.section_header p{
+    color: #00B4FF;
+}
+
+.signup_container{
+    margin: 1% auto;
+    padding: 1%;
+    
+    width: 50%;
+    
+    background: white;
+    border-radius: 3px;
+}
+
+form input{
+    display: block;
+    
+    margin: 3%;
+    padding: 0.6%;
+    
+    width: 95%;
+    background: transparent;
+    border-bottom: 1px solid #515151;
+}
+
+form p {
+    margin: 3% 0;
+}
+
+form p + label{
+    margin-left: 3%;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus{
+    border-color: #00B4FF;
+}
+
+input[type="radio"] {
+    display: inline;
+    margin: 1%;
+    
+    width: auto;
+}
+
+input#doctor {
+    margin-right: 71%;
+    margin-bottom: 3%;
+}
+
+input[value="submit"]{
+    margin: auto;
+    padding: 1%;
+    
+    width: auto;
+    background: #515151;
+    color: white;
+    border-bottom: none;
+    border-radius: 3px;
+}
+
+input[value="submit"]:focus,
+input[value="submit"]:hover{
+    background: #00B4FF;
+}

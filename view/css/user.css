@@ -1,0 +1,156 @@
+@import "./default.css";
+
+/*  Style **********************************************************************************************************/
+
+body{
+    background-image: url(../html5/patterns/cream_pixels.png);
+}
+
+header{
+    position: fixed;
+    left: 10%;
+    
+    width: 88%;
+    padding: 1%;
+    background: #515151;
+    
+    z-index: 1;
+}
+
+header p{
+    color: #00B4FF;
+}
+
+/******************************************************************************************************************/
+
+
+
+
+/*  Left bar ********************************************************************************************************/
+
+.left_bar{
+    float: left;
+    position: fixed;
+    
+    width: 10%;
+    height: 100%;
+    background: #515151;
+}
+
+.left_bar * {
+    display: block;
+    margin: auto;
+    margin-bottom: 20%;
+}
+
+.left_bar img{    
+    width: 80%;    
+}
+
+.left_bar input[type="image"]{
+    width: 50%;
+}
+
+/******************************************************************************************************************/
+
+
+
+
+/*  Content *******************************************************************************************************/
+
+.content{
+    float: left;
+    margin: 7.5% 15%;
+    
+    width: 70%;
+    padding: 5%;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.content .name{
+    font-size: 1.5em;
+}
+/******************************************************************************************************************/
+
+
+
+
+/*  Edit profile **************************************************************************************************/
+
+.edit_profile input,
+.new_patient input{
+    display: block;
+    
+    margin: 5% 0;
+    padding-bottom: 1%;
+    
+    width: 95%;
+    border-bottom: 1px solid #515151;
+}
+
+.edit_profile input,
+.new_patient input:focus{
+    border-color: #00B4FF;
+}
+
+.edit_profile input[type="submit"],
+.new_patient input[type="submit"]{
+    margin: auto;
+    padding: 1%;
+    
+    width: auto;
+    border: none;
+    border-radius: 3px;
+}
+
+.edit_profile input[type="submit"]:focus,
+.new_patient input[type="submit"]:focus,
+.edit_profile input[type="submit"]:hover,
+.new_patient input[type="submit"]:hover{
+    background: #00B4FF;
+    color: white;
+}
+
+/******************************************************************************************************************/
+
+
+
+
+/*  Patients ******************************************************************************************************/
+
+.patients li{
+    position: relative;
+    
+    margin-bottom: 3%;
+    padding: 1%;
+    
+    border-radius: 3px;
+    list-style: none;
+}
+
+.patients li:nth-child(odd){
+    background: #EEEEEE;
+}
+
+.patients li:hover{
+    background: #00B4FF;
+}
+
+.patients li:hover *{
+    color: white;
+}
+
+.patients li:hover hr{
+    border-color: #33BFFC;
+}
+
+.patients li input[type="image"]{
+    position: absolute;
+    top: 5%;
+    right: 0%;        
+    
+    width: 5%;
+}
+
+/******************************************************************************************************************/

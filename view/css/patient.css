@@ -1,0 +1,176 @@
+@import "./default.css";
+
+body{
+    background: url(../html5/patterns/cream_pixels.png);
+}
+
+header{
+    padding: 1%;
+    
+    background: #515151;
+}
+
+header p{
+    color: #00B4FF;
+}
+
+.content{
+    margin: 3% auto;
+    padding: 5%;
+
+    width: 75%;
+    
+    background: white;
+}
+
+.content .patient{
+    margin-bottom: 3%;
+    padding: 3%;
+    
+    background: #515151;
+    border-radius: 3px;
+}
+
+.content .patient p{
+    color: white;
+}
+
+.content .patient .name{
+    font-size: 1.3em;
+}
+
+.content .time p{
+    color: #00B4FF;
+}
+
+.content .entries li{
+    margin-bottom: 3%;
+    padding: 1%;
+    
+    border-radius: 3px;
+    list-style: none;
+}
+
+.content .entries li:nth-child(odd){
+    background: #EEEEEE;
+}
+
+.content .entries li:hover{
+    background: #00B4FF;
+}
+
+.content .entries li:hover *{
+    color: white;
+}
+
+.content .entries li:hover hr{
+    border-color: #33BFFC;
+}
+
+.content .buttons{
+    float: right;
+}
+
+.content .buttons input{
+    background: none;
+}
+
+.content .add_entry,
+.content .edit_entry{
+    padding: 2%;
+    
+    border-radius: 3px;
+}
+
+.content .add_entry{
+    background: #515151;
+}
+
+.content .edit_entry{
+    background: #00B4FF;
+}
+
+.content .add_entry label,
+.content .edit_entry label{
+    color: white;
+}
+
+.content input[type="date"],
+.content input[type="time"]{
+    background: #EEEEEE;
+    padding: 1%;
+    border-radius: 3px;
+}
+
+.content .edit_entry input[type="date"],
+.content .edit_entry input[type="time"],
+.content .edit_entry input[type="submit"]{
+    background: white;
+}
+
+.content input[type="time"]{
+    margin: 1%;
+}
+
+.content .occurrent{
+    margin: 5px;
+}
+
+.content input[type="checkbox"]:checked ~ label,
+.content input[type="checkbox"]:checked ~ input#end_time,
+.content input[type="checkbox"]:checked ~ input[name="end_time"]{
+    display: none;
+}
+
+.content textarea{
+    margin: 2% 2.5%;
+    padding: 1%;
+    
+    width: 95%;
+    
+    border-radius: 3px;
+}
+
+.content input[type="submit"]{
+    margin: auto;
+    padding: 1%;
+    
+    width: auto;
+    border: none;
+    border-radius: 3px;
+}
+
+.content input[type="submit"]:hover,
+.content label[for="add_entry"]:hover,
+.content input[type="submit"]:focus,
+.content label[for="add_entry"]:focus{
+    background: #00B4FF;
+    color: white;
+}
+
+.content input[type="submit"]:hover,
+.content label[for="edit_entry"]:hover,
+.content input[type="submit"]:focus,
+.content label[for="edit_entry"]:focus{
+    background: #EEEEEE;
+    color: #515151;
+}
+
+.content label[for="add_entry"],
+.content label[for="edit_entry"]{
+    display: inline-block;
+    margin-bottom: 2%;
+    padding: 1%;
+    
+    background: #EEEEEE;
+    border-radius: 3px;
+}
+
+.content .add_entry,
+.content #add_entry{
+    display: none;
+}
+
+.content #add_entry:checked ~ .add_entry{
+    display: block;
+}
