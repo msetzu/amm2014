@@ -36,6 +36,12 @@
                 require "add_patient.php";
                 
             break;
+        
+            case "search_patients":
+                
+                require "search.php";
+                
+            break;
             
         }
 
