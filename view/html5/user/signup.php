@@ -24,8 +24,14 @@
             <p>Signup</p>
         </div>
         
+        <?php
+        
+			$_REQUEST["user"] = "guest";
+			$_REQUEST["wants"] = "signup";
+        ?>
+        
         <div class="signup_container">
-            <form method="get" target="_self">
+            <form action="../../../controller/index.php" method="get" target="_self">
                 <label for="name" >Name:</label>
                 <input type="text" name="name" id="name" placeholder="No numbers accepted" autofocus/>
                 <label for="surname" >Surname:</label>
@@ -46,7 +52,7 @@
                 <label for="password_entry2">Confirm password:</label>
                 <input type="password" name="password_entry2" id="password_entry2"/>
                 
-                <input type="button" value="submit"/>
+                <input type="submit" value="submit"/>
             </form>
         </div>
         

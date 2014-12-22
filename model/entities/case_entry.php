@@ -1,6 +1,6 @@
 <?php
 	
-	require_once("/home/amm/development/amm2014/model/factories/settings.php");
+	require_once dirname(__FILE__).'/../factories/settings.php';
 
 
 	class CaseEntry	{

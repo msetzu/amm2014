@@ -2,8 +2,12 @@
 
     <div class="name">
         
-        <p><?= $_SESSION["user_name"] ?> <?= $_SESSION["user_surname"] ?></p>
-
+        <p><?= $_SESSION['user_name'] ?> <?= $_SESSION['user_surname'] ?></p>
+        
+		<?php
+			echo "Profile on his way...";
+		?>        
+        
     </div>
 
     <hr/>

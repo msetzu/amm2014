@@ -1,9 +1,10 @@
 <?php
-        require_once("/home/amm/development/amm2014/model/factories/settings.php");
 
-	require_once(Settings::baseDirectory()."model/exceptions/queryException.php");
-	require_once(Settings::baseDirectory()."model/exceptions/connectionException.php");
-	require_once(Settings::baseDirectory()."model/exceptions/userNotAddedException.php");
+	require_once dirname(__FILE__).'/settings.php';
+
+	include_once dirname(__FILE__).'/../exceptions/queryException.php';
+	include_once dirname(__FILE__).'/../exceptions/connectionException.php';
+	require_once dirname(__FILE__)."/../exceptions/userNotAddedException.php";
 	
         
 	class Factory{

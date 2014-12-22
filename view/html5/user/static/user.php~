@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        
+        <meta charset="utf-8">
+        <meta lang="en">
+        
+        <meta name="application-name" content="amm2014 - setzuMattia">
+        <meta name="author" content="tia" >
+        
+        <meta name="description" content="Clinic case viewer and editor, user page.">
+        <meta keywords="amm2014,setzuMattia,patients">        
+        
+        <link rel="stylesheet" href="../../../css/user.css"/>
+        
+    </head>
+    
+    <body>
+        
+        <p>paragraph</p>        
+
+			<?php
+			
+				echo "Testing php...";	
+				
+			?>
+
+        <?php
+            
+				echo "Requesting content...";               
+            
+            session_start();
+        
+        		echo "Session started...";        
+
+            $_SESSION['user_name']="Marco";
+            $_SESSION['user_surname']="Rossi";
+            $_SESSION['user_birthday']="12/12/2012";
+            $_SESSION['user_ward']="None";
+            $_SESSION['user_role']="Doctor";
+            $_SESSION['user_email']="marco_rossi@doctor.com";
+            $_SESSION['user_password']="password";
+            
+            $content="profile";
+            
+            echo "Content st up: $content";            
+				
+				echo "Mm...";				
+
+				try{
+           		require("/Amm/amm2014/model/factories/settings.php");
+           		echo "Ok";
+            }catch(Exception $e){echo "Not working...";}
+            //require(Settings::baseDirectory()."model/entities/patient.php");
+            
+				echo "Required both settings patient...";            
+            
+            $patients=array();
+            
+            $patients[]=new Patient("Mario", "Rossi", new DateTime("12-12-2012 12:12:12"), "None", 13, 13);
+            $patients[]=new Patient("Mario", "Rossi", new DateTime("12-12-2012 12:12:12"), "None", 13, 13);
+            $patients[]=new Patient("Mario", "Rossi", new DateTime("12-12-2012 12:12:12"), "None", 13, 13);
+            $patients[]=new Patient("Mario", "Rossi", new DateTime("12-12-2012 12:12:12"), "None", 13, 13);
+            $patients[]=new Patient("Mario", "Rossi", new DateTime("12-12-2012 12:12:12"), "None", 13, 13);
+            $patients[]=new Patient("Mario", "Rossi", new DateTime("12-12-2012 12:12:12"), "None", 13, 13);
+            $patients[]=new Patient("Mario", "Rossi", new DateTime("12-12-2012 12:12:12"), "None", 13, 13);
+            
+				echo "Requesting modules...";            
+            
+            require "./top_bar.php";
+            require "./left_bar.php";
+            require "../content/content.php";
+            
+                     
+
+        ?>   
+        
+    </body>
+    
+</html>

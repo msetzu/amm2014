@@ -1,28 +1,25 @@
 <div class="content">
     
     <?php
-        
-        $start_date="2012-12-12";
-        $end_date="2012-12-12";
-        
-        $start_time="12:12";
-        $end_time="12:12";
-    
-        
+        $content="profile";
         switch($content){
             
-            case "patient":
-                
-                require("patient.php");
-                
+            case "profile":
+                require dirname('.').'/profile.php';
+            break;
+
+            case "patient":                
+                require dirname(__FILE__).'/patient.php';                
             break;
         
-            case "edit_entry":
-                
-                require("edit_entry.php");
-                
+            case "edit_entry":                
+                require dirname('.').'/edit_entry.php';                
             break;
             
+            default:
+                echo "Nothing";
+            break;
+
         }
     
     ?>

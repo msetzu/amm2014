@@ -2,15 +2,18 @@
 
     <?php
         
+        /* Set up birthday format */
+        $dateTime=new DateTime($_SESSION['user_birthday']);                
+        
+        
         switch($content){
             
             case "profile":
-                try{
-                    $age=$_SESSION['user_birthday']->diff(new DateTime("now", new DateTimeZone('Europe/Rome')));
-                    $years=$age->y;
-                } catch(Exception $e) {echo "exception 2";}
                 
-                require dirname(__FILE__).'/profile.php';
+                $age=$dateTime->diff(new DateTime("now"));
+                $years=$age->y;
+                
+                require "profile.php";
                 
             break;
         
@@ -18,31 +21,31 @@
                 
                 $birthday=$dateTime->format("Y-m-d");
                 
-                require dirname(__FILE__)."/edit_profile.php";
+                require "edit_profile.php";
                 
             break;
         
             case "patients":
                 
-                require dirname(__FILE__)."/patients.php";
+                require "patients.php";
                 
             break;
         
             case "add_patient":
                 
-                require dirname(__FILE__)."/add_patient.php";
+                require "add_patient.php";
                 
             break;
         
             case "patients_search_result":
                 
-                require dirname(__FILE__)."/search.php";
+                require "search.php";
                 
             break;
             
             case "patient_search":
                 
-                require dirname(__FILE__)."/search_form.php";
+                require "search_form.php";
                 
             break;
         

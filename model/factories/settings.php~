@@ -1,12 +1,14 @@
 <?php
 
+	echo "Settings added...";
+
 	class Settings{
             
-            private static $user="root";
+            private static $user="setzuMattia";
             private static $password="b71fE#";
             private static $database="setzuMattia";
 
-            private static $BASE_DIRECTORY="/Amm/amm2014/";
+            private static $BASE_DIRECTORY="/srv/http/Amm/amm2014/";
 
             public function getUser(){
                     return self::$user;

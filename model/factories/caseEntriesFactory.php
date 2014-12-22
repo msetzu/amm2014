@@ -1,6 +1,6 @@
 <?php
     
-    require_once("/home/amm/development/amm2014/model/factories/settings.php");
+    require_once dirname(__FILE__).'/settings.php';
     
     require_once(Settings::baseDirectory()."/model/factories/factory.php");
     
@@ -67,15 +67,13 @@
                                        start,
                                        end,
                                        description,
-                                       patient_id,
-                                       patient_fk)
+                                       patient_id)
                                    values
                                        (default,
                                        ?,
                                        ?,
                                        ?,
-                                       ?,
-                                       null)
+                                       ?)
                                ");
 
                $stmt->bind_param("sssi",

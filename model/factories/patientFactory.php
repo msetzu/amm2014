@@ -1,11 +1,11 @@
 <?php
 
-    require_once("/home/amm/development/amm2014/model/factories/settings.php");
+    require_once dirname(__FILE__).'/settings.php';
     
-    require_once(Settings::baseDirectory()."/model/factories/factory.php");
+    require_once dirname(__FILE__).'/factory.php';
     
-    require_once(Settings::baseDirectory()."/model/exceptions/queryException.php");
-    require_once(Settings::baseDirectory()."/model/exceptions/connectionException.php");
+    require_once dirname(__FILE__).'/../exceptions/queryException.php';
+    require_once dirname(__FILE__).'/../exceptions/connectionException.php';
 
 
     class PatientFactory {
@@ -188,18 +188,14 @@
                                         surname,
                                         birthday,
                                         ward,
-                                        bed_number,
-                                        users_fk,
-                                        case_entries_fk)
+                                        bed_number)
                                     values
                                         (default,
                                         ?,
                                         ?,
                                         ?,
                                         ?,
-                                        0,                                        
-                                        null,
-                                        null)
+                                        0)
                                 ");
 
                 $stmt->bind_param("ssss",

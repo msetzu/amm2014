@@ -1,8 +1,8 @@
 <?php
 
-    require_once("/home/amm/development/amm2014/model/factories/settings.php");
+    require_once dirname(__FILE__).'/../factories/settings.php';
 
-    require_once(Settings::baseDirectory()."model/entities/person.php");
+    require_once dirname(__FILE__).'/person.php';
 
 
     class Patient extends Person{

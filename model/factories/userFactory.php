@@ -1,16 +1,16 @@
 <?php
 	
-    require_once("/home/amm/development/amm2014/model/factories/settings.php");
+    require_once dirname(__FILE__).'/settings.php';
 		
-    require_once(Settings::baseDirectory()."model/factories/factory.php");
-    require_once(Settings::baseDirectory()."model/factories/patientFactory.php");
+    require_once dirname(__FILE__).'/factory.php';
+    require_once dirname(__FILE__).'/patientFactory.php';
     
-    require_once(Settings::baseDirectory()."model/exceptions/mailLengthException.php");
-    require_once(Settings::baseDirectory()."model/exceptions/mailDuplicateException.php");
-    require_once(Settings::baseDirectory()."model/exceptions/passwordLengthException.php");
-    require_once(Settings::baseDirectory()."model/exceptions/queryException.php");
-    require_once(Settings::baseDirectory()."model/exceptions/userNotAddedException.php");
-    require_once(Settings::baseDirectory()."model/exceptions/userNotValidException.php");
+    require_once dirname(__FILE__).'/../exceptions/mailLengthException.php';
+    require_once dirname(__FILE__).'/../exceptions/mailDuplicateException.php';
+    require_once dirname(__FILE__).'/../exceptions/passwordLengthException.php';
+    require_once dirname(__FILE__).'/../exceptions/queryException.php';
+    require_once dirname(__FILE__).'/../exceptions/userNotAddedException.php';
+    require_once dirname(__FILE__).'/../exceptions/userNotValidException.php';
     
 
     class UserFactory{
@@ -95,19 +95,19 @@
                             while ($stmt->fetch()) {
 
                                 switch ($res_role){
-
+									
                                     case "Doctor":
-                                        $results[]=new Doctor($res_name, $res_surname, new DateTime($res_birthday), $res_ward, $res_email, $res_password, $res_id);
+                                        $results[]=new Doctor($res_name, $res_surname, new DateTime($res_birthday, new DateTimeZone('Europe/Rome')), $res_ward, $res_email, $res_password, $res_id);
                                     break;
 
                                     case "Student":
-                                        $results[]=new Student($res_name, $res_surname, new DateTime($res_birthday), $res_ward, $res_email, $res_password, $res_id);
+                                        $results[]=new Student($res_name, $res_surname, new DateTime($res_birthday, new DateTimeZone('Europe/Rome')), $res_ward, $res_email, $res_password, $res_id);
                                     break;
 
                                 }
 
                             }
-
+                            
                             return (count($results)==0)?null:$results;
 
                         }else{
