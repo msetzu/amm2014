@@ -218,8 +218,7 @@
                                        ward,
                                        email,
                                        password,
-                                       role,
-                                       patients_fk)
+                                       role)
                                    values
                                        (default,
                                        ?,
@@ -228,8 +227,7 @@
                                        ?,
                                        ?,                                        
                                        ?,
-                                       ?,
-                                       null)
+                                       ?)
                                ");
 
                $stmt->bind_param("sssssss",
@@ -252,7 +250,7 @@
                        return;
 
                    }else{
-                       
+
                        Factory::close_connection($db_interface);
                        throw new UserNotAddedException("Error Processing Request", 1);
 

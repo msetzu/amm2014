@@ -24,34 +24,27 @@
             <p>Signup</p>
         </div>
         
-        <?php
-        
-			$_REQUEST["user"] = "guest";
-			$_REQUEST["wants"] = "signup";
-        ?>
-        
         <div class="signup_container">
             <form action="../../../controller/index.php" method="get" target="_self">
-                <label for="name" >Name:</label>
+                <label for="name">Name:</label>
                 <input type="text" name="name" id="name" placeholder="No numbers accepted" autofocus/>
-                <label for="surname" >Surname:</label>
+                <label for="surname">Surname:</label>
                 <input type="text" name="surname" id="surname" placeholder="No numbers accepted"/>
-                <label for="birthday" >Birthday:</label>
+                <label for="birthday">Birthday:</label>
                 <input type="date" name="birthday" id="birthday"/>
                 <p>Account:</p>
                     <label for="student">Student</label>
                     <input type="radio" name="role" value="Student" id="student"/>
                     <label for="doctor">Doctor</label>
                     <input type="radio" name="role" value="Doctor" id="doctor"/>
-                <label for="ward" >Ward:</label>
+                <label for="ward">Ward:</label>
                 <input type="text" name="ward" id="ward"/>
-                <label for="email" >Email:</label>
+                <label for="email">Email:</label>
                 <input type="text" name="email" id="email"/>
                 <label for="password_entry1">Password:</label>
                 <input type="password" name="password_entry1" id="password_entry1"/>
-                <label for="password_entry2">Confirm password:</label>
-                <input type="password" name="password_entry2" id="password_entry2"/>
-                
+                <input type="hidden" name="wants" value="signup">
+                <input type="hidden" name="user" value="guest">
                 <input type="submit" value="submit"/>
             </form>
         </div>
