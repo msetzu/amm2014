@@ -5,18 +5,20 @@
         switch($content){
             
             case "profile":
-                try{
+                try {
                     $age=$_SESSION['user_birthday']->diff(new DateTime("now", new DateTimeZone('Europe/Rome')));
                     $years=$age->y;
-                } catch(Exception $e) {echo "exception 2";}
+                } catch (Exception $e) {
+                    echo var_dump($e->getTrace());
+                }
                 
                 require dirname(__FILE__).'/profile.php';
                 
             break;
         
             case "edit_profile":
-                
-                $birthday=$dateTime->format("Y-m-d");
+
+                $birthday=$_SESSION['user_birthday']->format("Y-m-d");
                 
                 require dirname(__FILE__)."/edit_profile.php";
                 

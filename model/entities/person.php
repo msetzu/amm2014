@@ -25,6 +25,19 @@
 
         }
         
+
+
+        /**
+         * Get a person's id.
+         * 
+         * @return int   The person's id.
+         */
+        public function getId(){
+
+            return $this->id;
+
+        }
+
         /**
          * Get a person's name.
          * 

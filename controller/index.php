@@ -3,6 +3,7 @@
     session_start();
 
 	require_once dirname(__FILE__)."/GuestController.php";
+    require_once dirname(__FILE__)."/UserController.php";
 	
     class Dispatcher {
         
@@ -17,8 +18,8 @@
                 break;
                 
                 case "user":
-                    
-                    //UserController::dispatch($_REQUEST["wants"]);
+
+                    UserController::dispatch($_REQUEST["wants"]);
                     
                 break;
                 

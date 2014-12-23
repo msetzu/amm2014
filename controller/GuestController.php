@@ -51,7 +51,9 @@
 					$_SESSION['user_birthday'] = $user->getBirthday();
 					$_SESSION['user_ward'] = $user->getWard();
 					$_SESSION['user_email'] = $user->getEmail();
-					$_SESSION['user_password'] = $user->getPassword();		
+					$_SESSION['user_password'] = $user->getPassword();
+					$_SESSION['user_id'] = $user->getId();
+					$_SESSION['user_role'] = $user->getRole();
 
 					$content = "profile";
 					require dirname(__FILE__)."/../view/html5/user/static/user.php";
@@ -71,7 +73,9 @@
 						$_SESSION['user_birthday'] = $user->getBirthday();
 						$_SESSION['user_ward'] = $user->getWard();
 						$_SESSION['user_email'] = $user->getEmail();
-						$_SESSION['user_password'] = $user->getPassword();		
+						$_SESSION['user_password'] = $user->getPassword();
+						$_SESSION['user_id'] = $user->getId();
+						$_SESSION['user_role'] = $user->getRole();
 
 						$content = "profile";
 						require dirname(__FILE__)."/../view/html5/user/static/user.php";

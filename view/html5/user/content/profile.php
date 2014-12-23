@@ -9,7 +9,7 @@
     <hr/>
 
     <div class="hospital_data">
-        
+    
         <p>Anni: <?= $years ?></p>
         <p>Reparto: <?= $_SESSION['user_ward'] ?></p>
         

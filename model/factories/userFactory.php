@@ -374,11 +374,11 @@
         * 
         * @return void
         */
-        public static function editUser($user, $oldEmail){
-
+        public static function editUser($user){
+            
             $db_interface=Factory::connect();
             $stmt=$db_interface->stmt_init();
-
+            
             if($stmt){
 
                 $stmt->prepare("update
@@ -391,19 +391,18 @@
                                     email=?,
                                     password=?
                                 where
-                                    email=?
+                                    id=?
                             ");
-
                 $stmt->bind_param("sssssss",
                                     $user->getName(),
                                     $user->getSurname(),
-                                    $user->getBirthday()->format("Y-m-d"),
+                                    $user->getBirthday(),
                                     $user->getWard(),
                                     $user->getEmail(),
                                     $user->getPassword(),
-                                    $oldEmail
+                                    $_SESSION['user_id']
                                   );
-
+                
                 if($stmt->errno==0){
 
                         $stmt->execute();
@@ -415,8 +414,8 @@
 
                         }else{
 
-                           Factory::close_connection($db_interface);
-                           throw new UserNotAddedException("Error Processing Request", 1);
+                            Factory::close_connection($db_interface);
+                            throw new UserNotAddedException("Error Processing Request", 1);
 
                         }
 
@@ -447,7 +446,7 @@
             $patientsIds=array();
             $patients=array();
 
-            $mysql_patientsIds=Factory::query("select patient_id from user_patient join users on users.id=user_patient.patient_id where user_patient.user_id=$id");
+            $mysql_patientsIds=Factory::query("select patient_id from user_patient where user_id = ".$id);
 
             while($currentId=$mysql_patientsIds->fetch_object()){
 
