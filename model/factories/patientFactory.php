@@ -149,7 +149,7 @@
 
                 return new Patient($patientObject->name,
                                     $patientObject->surname,
-                                    new DateTime($patientObject->birthday." 00:00:00"),
+                                    new DateTime($patientObject->birthday." 00:00:00", new DateTimeZone('Europe/Rome')),
                                     $patientObject->ward,
                                     $patientObject->bed_number,
                                     $id);
@@ -195,16 +195,16 @@
                                         ?,
                                         ?,
                                         ?,
-                                        0)
+                                        ?)
                                 ");
 
-                $stmt->bind_param("ssss",
+                $stmt->bind_param("ssssi",
                                     $patient->getName(),
                                     $patient->getSurname(),
                                     $patient->getBirthday()->format("Y-m-d"),
-				    $patient->getWard()				
+				                    $patient->getWard(),
+                                    $patient->getBedNumber()
                                  );
-
                 if($stmt->errno==0){
 
                     $stmt->execute();

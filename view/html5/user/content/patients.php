@@ -3,16 +3,14 @@
     <ul>
         
         <?php            
-        
+
             foreach($patients as $currentPatient){
-                
-                $id=$currentPatient->getId();
-                
+                $bd = $currentPatient->getBirthday();
                 echo "
                     <li>
                         <div class=\"birth_record\">
                             <p class=\"name\">".$currentPatient->getName()." ".$currentPatient->getSurname()."</p>
-                            <p>Età: ".$currentPatient->getBirthday()->diff(new DateTime("now"))->y." anni</p>
+                            <p>Età: ".$bd->diff(new DateTime("now", new DateTimeZone('Europe/Rome')))->y." anni</p>
                         </div>
 
                         <hr/>
@@ -24,7 +22,7 @@
                         
                         <form method=\"get\" target=\"_blank\">
                             
-                            <input type=\"image\" src=\"../../icons/clinic_case_grey.svg\" name=\"in\" value=\"$id\" />
+                            
 
                         </form>
 

@@ -25,8 +25,6 @@
 			require_once dirname(__FILE__).'/../../../../model/factories/settings.php';
             require_once dirname(__FILE__).'/../../../../model/entities/patient.php';
             
-            $patients=array();
-            
             require dirname(__FILE__).'/top_bar.php';
             require dirname(__FILE__).'/left_bar.php';
             require dirname(__FILE__).'/../content/content.php';

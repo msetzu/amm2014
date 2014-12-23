@@ -4,6 +4,7 @@
 
 	require_once dirname(__FILE__)."/GuestController.php";
     require_once dirname(__FILE__)."/UserController.php";
+    require_once dirname(__FILE__)."/PatientController.php";
 	
     class Dispatcher {
         
@@ -24,8 +25,8 @@
                 break;
                 
                 case "patient":
-                    
-                    //PatientController::dispatch($_REQUEST["wants"]);
+
+                    PatientController::dispatch($_REQUEST["wants"]);
                     
                 break;
                 

@@ -172,7 +172,7 @@
 
                return new User($userObject->name,
                                 $userObject->surname,
-                                new DateTime($userObject->birthday." 00:00:00"),
+                                new DateTime($userObject->birthday." 00:00:00", new DateTimeZone('Europe/Rome')),
                                 $userObject->ward,
                                 $userObject->email,
                                 $userObject->password,
@@ -442,22 +442,20 @@
         * @param int   $id     The user's id.
         */
         public static function getUsersPatients($id){
-
+            
             $patientsIds=array();
             $patients=array();
 
             $mysql_patientsIds=Factory::query("select patient_id from user_patient where user_id = ".$id);
-
+            
             while($currentId=$mysql_patientsIds->fetch_object()){
 
                 $patientsIds[]=$currentId->patient_id;
 
             }
-
+            
             foreach ($patientsIds as $currentPatientId){
-
-                $patients[]=PatientFactory::getPatientById($currentPatientId);
-
+                    $patients[]=PatientFactory::getPatientById($currentPatientId);
             }
 
             return $patients;
@@ -496,7 +494,7 @@
          * @param int       $patientId  The patient's id.
          */
         public static function addPatient($userId, $userRole, $patientId){
-            
+
             try{
                 
                 Factory::query("insert into

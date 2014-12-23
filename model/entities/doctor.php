@@ -23,7 +23,9 @@
 
         }
 
-        
+        public function getRole() {
+            return get_class($this);
+        }
     }
         
 ?>

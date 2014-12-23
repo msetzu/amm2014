@@ -3,6 +3,7 @@
     require_once dirname(__FILE__).'/../factories/settings.php';
 
     require_once dirname(__FILE__).'/person.php';
+    require_once dirname(__FILE__).'/user.php';
 
 
     class Student extends User{
@@ -23,7 +24,9 @@
 
         }
 
-        
+        public function getRole() {
+            return get_class($this);
+        }        
     }
         
 ?>
