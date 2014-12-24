@@ -6,6 +6,7 @@
 
             foreach($patients as $currentPatient){
                 $bd = $currentPatient->getBirthday();
+                
                 echo "
                     <li>
                         <div class=\"birth_record\">
@@ -20,10 +21,13 @@
                             <p>Bed number: ".$currentPatient->getBedNumber()."</p>
                         </div>
                         
-                        <form method=\"get\" target=\"_blank\">
+                        <form action=\"".dirname('.')."/../controller/index.php\" method=\"get\" target=\"_blank\">
                             
+                            <input type=\"image\" src=\"".dirname('.')."/../view/html5/icons/clinic_case_grey.svg\"/>
+                            <input type=\"hidden\" name=\"id\" value=\"".$currentPatient->getId()."\"/>
+                            <input type=\"hidden\" name=\"user\" value=\"patient\"/>
+                            <input type=\"hidden\" name=\"wants\" value=\"clinic_folder\"/>
                             
-
                         </form>
 
                     </li>

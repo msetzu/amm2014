@@ -2,10 +2,10 @@
     
     require_once dirname(__FILE__).'/settings.php';
     
-    require_once(Settings::baseDirectory()."/model/factories/factory.php");
+    require_once dirname(__FILE__).'/factory.php';
     
-    require_once(Settings::baseDirectory()."/model/exceptions/queryException.php");
-    require_once(Settings::baseDirectory()."/model/exceptions/connectionException.php");
+    require_once dirname(__FILE__).'/../exceptions/queryException.php';
+    require_once dirname(__FILE__).'/../exceptions/connectionException.php';
 
     class caseEntriesFactory{    
         
@@ -17,9 +17,9 @@
          * @throws  QueryException.
          * @throws  ConnectionException.
          */
-        public static function getEntriesById($id){
+        public static function getEntriesByPatientId($id){
             
-            $results=array();
+            $results=array(); 
             
             $caseEntries=Factory::query("select
                                 id,
@@ -30,18 +30,18 @@
                                 case_entries
                             where
                                 patient_id=".$id);
-
+            
             while($currentCaseEntry=$caseEntries->fetch_object()){
-
-                $results[]=new CaseEntry(new DateTime($currentCaseEntry->start),
-                                         new DateTime($currentCaseEntry->end),
+                
+                $results[]=new CaseEntry(new DateTime($currentCaseEntry->start, new DateTimeZone('Europe/Rome')),
+                                         new DateTime($currentCaseEntry->end, new DateTimeZone('Europe/Rome')),
                                          $currentCaseEntry->description,
                                          $currentCaseEntry->id,
                                          $id
                                         );
 
             }
-
+            
             return $results;
                 
             
@@ -60,7 +60,7 @@
            $stmt=$db_interface->stmt_init();
 
            if($stmt!=null){
-
+              
                $stmt->prepare("insert into
                                    case_entries
                                        (id,
@@ -75,7 +75,7 @@
                                        ?,
                                        ?)
                                ");
-
+               
                $stmt->bind_param("sssi",
                                    $caseEntry->getStart()->format("Y-m-d H:s:i"),
                                    $caseEntry->getEnd()->format("Y-m-d H:s:i"),
@@ -84,7 +84,7 @@
                                 );
 
                if($stmt->errno==0){
-
+                  
                    $stmt->execute();
 
                    if($stmt->errno==0){
@@ -187,15 +187,12 @@
          * @throws  QueryException          If $entry could not be deleted.
          * @throws  ConnectionException     If $entry could not be deleted.
          */
-        public static function deleteEntry($entry){
-            
-            $id=$entry->getId();
+        public static function deleteEntry($id){            
             
             Factory::query("delete from
                                 case_entries
                             where
-                                id=
-                            $id");
+                                id=".$id);
             
         }
 

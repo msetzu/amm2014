@@ -1,12 +1,11 @@
-
 <div class="patient">
 
     <div class="birth_record">
 
         <p class="name"><?= $patient->getName() ?> <?= $patient->getSurname() ?></p>
         <p>Age: <?php
-
-                    $age=$patient->getBirthday()->diff(new DateTime("now"));
+                    $bd = $patient->getBirthday();
+                    $age=$bd->diff(new DateTime("now", new DateTimeZone('Europe/Rome')));
                     $years="";
                     $months="";
                     $days="";

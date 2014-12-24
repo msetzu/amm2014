@@ -7,7 +7,7 @@
         <meta lang="en">
         
         <meta name="application-name" content="amm2014 - setzuMattia">
-        <meta name="author" content="tia" >
+        <meta name="author" content="ma.setzu2@studenti.unica.it" >
         
         <meta name="description" content="Clinic case viewer and editor, user page.">
         <meta keywords="amm2014,setzuMattia,patients">        

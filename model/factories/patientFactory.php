@@ -131,7 +131,7 @@
          * @return null if no patient is found, a Patient Object otherwise.
          */
         public static function getPatientById($id){
-
+            
             $mysqli_result=Factory::query("select
                                                 name,
                                                 surname,
@@ -142,11 +142,11 @@
                                                 patients
                                             where
                                                 id=$id");
-
+            
             $patientObject=$mysqli_result->fetch_object();
-
+            
             if($patientObject!=null){
-
+            
                 return new Patient($patientObject->name,
                                     $patientObject->surname,
                                     new DateTime($patientObject->birthday." 00:00:00", new DateTimeZone('Europe/Rome')),
@@ -155,7 +155,7 @@
                                     $id);
 
             }
-
+            
             return null;
 
         }

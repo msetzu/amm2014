@@ -2,13 +2,20 @@
     
     <ul>
         <?php
-        
+            
             foreach($entries as $currentEntry){
                 
                 $start=$currentEntry->getStart()->format("Y-m-d H:i:s");
                 $end=$currentEntry->getEnd()->format("Y-m-d H:i:s");
                 $description=$currentEntry->getDescription();
-                
+                $entryId = $currentEntry->getId();
+                $patientId = $patient->getId();
+
+                echo "patient id:";
+                echo var_dump($patientId);
+                echo "entry id:";
+                echo var_dump($entryId);
+
                 if($end=="1011-11-11 11:11:11"){
                     
                     $time="Occurent, started on $start";
@@ -28,8 +35,13 @@
                         <div class=\"time\">
                             <p>$time</p>
                             <div class=\"buttons\">
-                                <input type=\"button\" value=\"edit\"/>
-                                <input type=\"button\" value=\"delete\"/>
+                            <form action=\"".dirname('.')."/../controller/index.php\" method=\"post\" target=\"_self\">
+                                <input type=\"submit\" name=\"wants\" value=\"edit\"/>
+                                <input type=\"submit\" name=\"wants\" value=\"delete\"/>
+                                <input type=\"hidden\" name=\"user\" value=\"patient\"/>
+                                <input type=\"hidden\" name=\"entry_id\" value=\"$entryId\"/>
+                                <input type=\"hidden\" name=\"patient_id\" value=\"$patientId\"/>
+                            </form>
                             </div>
                         </div>
 

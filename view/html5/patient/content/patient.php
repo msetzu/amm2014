@@ -1,7 +1,7 @@
     <?php
-    
-        require "patient_info.php";
-        require "entries.php";
+
+        require dirname(__FILE__)."/patient_info.php";
+        require dirname(__FILE__)."/entries.php";
 
     ?>
     
@@ -9,7 +9,7 @@
     
     <div class="add_entry">
         
-        <form method="post" target="_self">
+        <form action="<?php echo dirname('.');?>/../controller/index.php" method="post" target="_self">
             <label for="start_time">Started on:</label>
             <input type="date" name="start_date" id="start_time"/>
             <input type="time" name="start_time"/>
@@ -26,9 +26,12 @@
             <input type="time" name="end_time"/>
 
 
-            <textarea placeholder="Write here..."></textarea>
+            <textarea placeholder="Write here..." name="description" id="description"></textarea>
 
             <input type="submit" value="Add"/>
+            <input type="hidden" name="id" value="<?=$_REQUEST['id'] ?>">
+            <input type="hidden" name="user" value="patient">
+            <input type="hidden" name="wants" value="add_entry">
         </form>
         
     </div>
