@@ -1,5 +1,5 @@
     <?php
-
+    
         require dirname(__FILE__)."/patient_info.php";
         require dirname(__FILE__)."/entries.php";
 

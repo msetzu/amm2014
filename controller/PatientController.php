@@ -43,9 +43,14 @@
 
 				case "add_entry":
 					
-					var_dump($_REQUEST['wants']);
 					$syntomStart = new DateTime(($_REQUEST['start_date']).($_REQUEST['start_time']), new DateTimeZone('Europe/Rome'));
-					$syntomEnd = new DateTime(($_REQUEST['end_date']).($_REQUEST['end_time']), new DateTimeZone('Europe/Rome'));
+
+					// Occuring event
+					if (isset($_REQUEST['occurrent'])){
+						$syntomEnd = new DateTime(($_REQUEST['end_date']).($_REQUEST['end_time']), new DateTimeZone('Europe/Rome'));
+					} else {
+						$syntomEnd = new DateTime("1011-11-11 11:11:11", new DateTimeZone('Europe/Rome'));
+					}
 
 					// Add entry
 					$entry = new CaseEntry($syntomStart, $syntomEnd, $_REQUEST['description'], 0, $_REQUEST['id']);
@@ -75,13 +80,21 @@
 				break;
 
 				case "edit":
-					
-					
+					echo " getting entry... ";
+					var_dump($_REQUEST['entry_id']);
+					$entry = CaseEntriesFactory::getEntryById($_REQUEST['entry_id']);
+					echo "entry retrieved ";
+					$patient = PatientFactory::getPatientById($entry->getPatientId());
+					echo " patient retrieved ";
+
+					$start_date = new DateTime($entry->getStart()->format("Y-m-d H:i:s"), new DateTimeZone('Europe/Rome'));
+					$end_date = new DateTime($entry->getEnd()->format("Y-m-d H:i:s"), new DateTimeZone('Europe/Rome'));
+
+					$content = "edit_entry";
+					require dirname(__FILE__)."/../view/html5/patient/static/patient.php";	
 
 				break;
-				default:
-					echo "default case!";
-				break;
+
 			}
 
 		}

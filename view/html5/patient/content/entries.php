@@ -11,11 +11,6 @@
                 $entryId = $currentEntry->getId();
                 $patientId = $patient->getId();
 
-                echo "patient id:";
-                echo var_dump($patientId);
-                echo "entry id:";
-                echo var_dump($entryId);
-
                 if($end=="1011-11-11 11:11:11"){
                     
                     $time="Occurent, started on $start";
@@ -36,11 +31,11 @@
                             <p>$time</p>
                             <div class=\"buttons\">
                             <form action=\"".dirname('.')."/../controller/index.php\" method=\"post\" target=\"_self\">
-                                <input type=\"submit\" name=\"wants\" value=\"edit\"/>
                                 <input type=\"submit\" name=\"wants\" value=\"delete\"/>
                                 <input type=\"hidden\" name=\"user\" value=\"patient\"/>
                                 <input type=\"hidden\" name=\"entry_id\" value=\"$entryId\"/>
                                 <input type=\"hidden\" name=\"patient_id\" value=\"$patientId\"/>
+                                <input type=\"hidden\" name=\"entry_id\" value=".$entryId."/>
                             </form>
                             </div>
                         </div>
@@ -49,7 +44,7 @@
 
                         <div class=\"description\">
                         
-                            <p>$description</p>
+                            <p>".$description."</p>
                             
                         </div>
 

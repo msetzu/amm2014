@@ -1,32 +1,57 @@
     <?php
-
-        require "patient_info.php";
-
+        require dirname(__FILE__).'/patient_info.php';
+        var_dump($entryId);
     ?>
 
     <div class="edit_entry">
         
-        <form method="post" target="_self">
+        <form action="<?php echo dirname('.')?>/../controller/index.php" method="post" target="_self">
             <label for="start_time">Started on:</label>
-            <input type="date" name="start_date" id="start_time" value=<?= $start_date ?> />
-            <input type="time" name="start_time" value=<?= $start_time ?> />
+            <input type="date" name="start_date" id="start_time" value="<?= $start_date->format("Y-m-d") ?>" />
+            <input type="time" name="start_time" value="<?= $start_date->format("H:i") ?>"/>
 
             <br/>
+            <?php
+                
+                if ($end_date->format("Y-m-d H:i:s") == "1011-11-11 11:11:11"){
 
-            <label for="occurrent">Occurent</label>
-            <input type="checkbox" name="occurent"/>
+                    echo "
+                        <label for=\"occurrent\">Occurrent</label>
+                        <input type=\"checkbox\" name=\"occurrent\" checked \/>
+
+                        <br/>
+
+                        <label for=\"start_time\">Ended on:</label>
+                        <input type=\"date\" name=\"end_date\" id=\"end_time\" value=\"".$end_date->format("Y-m-d")."\"\/>
+                        <input type=\"time\" name=\"end_time\" value=\"".$end_date->format("H:i")."\"\/>
+                    ";
+
+                } else {
+
+                    echo "
+
+                        <label for=\"occurrent\">Occurrent</label>
+                        <input type=\"checkbox\" name=\"occurrent\" \/>
+
+                        <br/>
+
+                        <label for=\"start_time\">Started on:</label>
+                        <input type=\"date\" name=\"start_date\" id=\"start_time\" value=\"".$end_date->format("Y-m-d")."\"\/>
+                        <input type=\"time\" name=\"start_time\" value=\"".$end_date->format("H:i")."\"\/>
+                    ";
+
+                }
+            ?>
+
 
             <br/>
-
-            <label for="end_time">Ended on:</label>
-            <input type="date" name="end" id="end_time" value=<?= $end_date ?> />
-            <input type="time" name="end_time" value=<?= $end_time ?> />
-
 
             <textarea placeholder="Write here..."></textarea>
 
             <input type="submit" value="submit"/>
-            
+            <input type="hidden" name="user" value="patient"/>
+            <input type="hidden" name="wants" value="update_entry"/>
+            <input type="hidden" name="entry_id" value="<?= $entryId ?>">
         </form>
-        
+        <?php echo "entry_id (edit_entry.php):".$entryId; ?>
     </div>

@@ -141,19 +141,8 @@ header p{
 }
 
 .content input[type="submit"]:hover,
-.content label[for="add_entry"]:hover,
-.content input[type="submit"]:focus,
-.content label[for="add_entry"]:focus{
-    background: #00B4FF;
-    color: white;
-}
-
-.content input[type="submit"]:hover,
-.content label[for="edit_entry"]:hover,
-.content input[type="submit"]:focus,
-.content label[for="edit_entry"]:focus{
-    background: #EEEEEE;
-    color: #515151;
+.content input[type="submit"]:focus{
+    color: #212121;
 }
 
 .content label[for="add_entry"],

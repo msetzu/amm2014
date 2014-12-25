@@ -8,7 +8,7 @@
                 require dirname(__FILE__).'/patient.php';                
             break;
         
-            case "edit_entry":                
+            case "edit_entry":
                 require dirname(__FILE__).'/edit_entry.php';                
             break;
             
