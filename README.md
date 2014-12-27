@@ -5,9 +5,9 @@ L'applicazione presentata agisce da semplice gestione elettronica di cartelle cl
 
 ##Requisiti
 
-Pattern MVC: *
-html5: *
-css: *
-php: *
-mySQL: * (Transazione utilizzata nel file 'model/caseEntriesFactory.php', funzione 'deleteEntry($id)')
-ajax: * (Utilizzato nel file '/controller/js/bedChecker.js', verifica in real-time la disponibilità del letto cui si sta cercando di assegnare il paziente.)
++ Pattern MVC: Added
++ html5: Added
++ css: Added
++ php: Added
+mySQL: Added (Transazione utilizzata nel file 'model/caseEntriesFactory.php', funzione 'deleteEntry($id)')
++ ajax: Added (Utilizzato nel file '/controller/js/bedChecker.js', verifica in real-time la disponibilità del letto cui si sta cercando di assegnare il paziente.)
