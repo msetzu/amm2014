@@ -189,10 +189,27 @@ class caseEntriesFactory{
 	*/
 	public static function deleteEntry($id){            
 
-		Factory::query("delete from
-		case_entries
-		where
-		id=".$id);
+		try{
+                        
+            $db_interface=Factory::connect();          
+            $db_interface->query("use ".Settings::getDatabase());
+            $db_interface->autocommit(false);
+            $result=$db_interface->query("delete from
+											case_entries
+											where
+											id=".$id);
+           
+           	$db_interface->commit();
+           	$db_interface->autocommit(true);
+            Factory::close_connection($db_interface);
+            return $result;
+
+
+            }catch (Exception $e){
+            	$db_interface->rollback();
+                Factory::close_connection($db_interface);
+                throw new QueryException("Error Processing Request", 1);
+            }
 
 	}
 
