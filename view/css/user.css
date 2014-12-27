@@ -202,4 +202,9 @@ input[value="submit"]:hover{
     background: #00B4FF;
 }
 
+input#submit_new_patient:disabled{
+    background: #DEDEDE;
+    color: #212121;
+}
+
 /******************************************************************************************************************/

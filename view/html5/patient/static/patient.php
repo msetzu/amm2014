@@ -14,6 +14,8 @@
         
         <link rel="stylesheet" href="<?php echo dirname('.')?>/../view/css/patient.css"/>
 
+        
+
     </head>
 
     <body>

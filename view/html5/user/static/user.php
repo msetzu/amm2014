@@ -14,6 +14,9 @@
         
         <link rel="stylesheet" href="<?php echo dirname('.')?>/../view/css/user.css"/>
         
+        <script type="text/javascript"src="<?php echo dirname('.')?>/../controller/js/lib/jquery-2.0.js"></script>
+        <script type="text/javascript" src="<?php echo dirname('.')?>/../controller/js/bed_checker.js"></script>
+
     </head>
     
     <body>

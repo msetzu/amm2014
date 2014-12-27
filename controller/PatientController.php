@@ -79,22 +79,6 @@
 
 				break;
 
-				case "edit":
-					echo " getting entry... ";
-					var_dump($_REQUEST['entry_id']);
-					$entry = CaseEntriesFactory::getEntryById($_REQUEST['entry_id']);
-					echo "entry retrieved ";
-					$patient = PatientFactory::getPatientById($entry->getPatientId());
-					echo " patient retrieved ";
-
-					$start_date = new DateTime($entry->getStart()->format("Y-m-d H:i:s"), new DateTimeZone('Europe/Rome'));
-					$end_date = new DateTime($entry->getEnd()->format("Y-m-d H:i:s"), new DateTimeZone('Europe/Rome'));
-
-					$content = "edit_entry";
-					require dirname(__FILE__)."/../view/html5/patient/static/patient.php";	
-
-				break;
-
 			}
 
 		}

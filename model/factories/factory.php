@@ -94,9 +94,9 @@
                         }
 
                 }catch (Exception $e){
-                    
+                    var_dump($e->getTrace());
                     Factory::close_connection($db_interface);
-                    throw new QueryException("Error Processing Request", 1);            	
+                    throw new QueryException("Error Processing Request", 1);          	
 
                 }
 
