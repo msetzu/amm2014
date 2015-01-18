@@ -2,8 +2,8 @@
 
 	class Settings{
             
-            private static $user="root";
-            private static $password="b71fE#";
+            private static $user="setzuMattia";
+            private static $password="cormorano72";
             private static $database="setzuMattia";
 
             private static $BASE_DIRECTORY="/Amm/amm2014/";
