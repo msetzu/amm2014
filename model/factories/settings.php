@@ -4,7 +4,7 @@
             
             private static $user="setzuMattia";
             private static $password="cormorano72";
-            private static $database="setzuMattia";
+            private static $database="amm14_setzuMattia";
 
             private static $BASE_DIRECTORY="/Amm/amm2014/";
 
